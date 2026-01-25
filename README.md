@@ -33,12 +33,23 @@ npm run dev
 ```
 ## Screenshots
 
+### 🖥️ Full System Overview
+The default landing page showing the unified view: student trajectories (faded orange), IoT sensor nodes (green), and detected statistical anomalies (red pulses).
+![landing page](public/landing_page.png)
+
+### 🗺️ Layer Control: Focus on Infrastructure
+By toggling the "Trajectories" layer, users can clear visual clutter to focus on the active state of the IoT deployment.
+![hide the trajectories](public/hide_trajectories.png)
+
+### 🔍 Layer Control: Forensic View
+Hiding both trajectories and sensor nodes provides a "hotspot-only" view, which is ideal for forensic spatial analysis of anomalies.
+![hide the trajectories and sensors](public/hide_trajectories_and_sensors.png)
+
+### ⚙️ Parameter Tuning: Advanced Detection
+Adjusting the **System Sensitivity (Z-Score)** allows users to filter the noise. Raising the threshold to 4.0σ isolates only the most severe statistical spikes.
+![increased Z-Threshold](public/increased_z_threshold.png)
+
 ---
 **Copyright @ Leroy 2026. All rights reserved.**
-
-![landing page](public/landing_page.png)
-![hide the trajectories](public/hide_trajectories.png)
-![hide the trajectories and sensors](public/hide_trajectories_and_sensors.png)
-![increased Z-Threshold](public/increased_z_threshold.png)
 
 
