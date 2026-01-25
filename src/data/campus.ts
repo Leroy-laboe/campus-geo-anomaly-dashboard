@@ -1,0 +1,60 @@
+/* Copyright @ Leroy 2026. All rights reserved. */
+import type { LatLng, POI } from "../types";
+
+export const CAMPUS_CENTER: LatLng = [6.13244, 100.38729];
+
+// AIU Campus boundary polygon (Custom shape)
+export const CAMPUS_BOUNDS: LatLng[] = [
+    [6.13436, 100.38720],
+    [6.13462, 100.38662],
+    [6.13457, 100.38622],
+    [6.13450, 100.38601],
+    [6.13419, 100.38558],
+    [6.13390, 100.38492],
+    [6.13363, 100.38479],
+    [6.13354, 100.38468],
+    [6.13346, 100.38288],
+    [6.13339, 100.38275],
+    [6.13158, 100.38278],
+    [6.13159, 100.38345],
+    [6.13061, 100.38382],
+    [6.12973, 100.38389],
+    [6.12886, 100.38416],
+    [6.12898, 100.38492],
+    [6.12960, 100.38492],
+    [6.12960, 100.38628],
+    [6.12986, 100.38660],
+    [6.13062, 100.38661],
+    [6.13066, 100.38693],
+    [6.13195, 100.38689],
+    [6.13252, 100.38700],
+    [6.13336, 100.38752],
+    [6.13402, 100.38719],
+];
+
+export const POIS: POI[] = [
+    { id: "b1", name: "Main Gate", kind: "admin", center: [6.134485, 100.386700] },
+    { id: "b2", name: "Student Centre", kind: "admin", center: [6.134184, 100.386233] },
+    { id: "b3", name: "Chancellory", kind: "admin", center: [6.133336, 100.386212] },
+    { id: "b4", name: "Canteen", kind: "cafeteria", center: [6.133230, 100.386732] },
+    { id: "b5", name: "Foundation", kind: "lab", center: [6.133934, 100.385526] },
+    { id: "b6", name: "Library", kind: "library", center: [6.133032, 100.385536] },
+    { id: "b7", name: "Convocation", kind: "admin", center: [6.132344, 100.385847] },
+    { id: "b8", name: "Social Business", kind: "lab", center: [6.132648, 100.386512] },
+    { id: "b9", name: "Lecture Theatres", kind: "lab", center: [6.133278, 100.384860] },
+    { id: "b10", name: "SBSS", kind: "lab", center: [6.132328, 100.384941] },
+    { id: "b11", name: "SCI", kind: "lab", center: [6.131800, 100.385343] },
+    { id: "b12", name: "Agriculture", kind: "lab", center: [6.131491, 100.385729] },
+    { id: "b13", name: "Gym", kind: "gym", center: [6.132158, 100.386362] },
+    { id: "b14", name: "Language Centre", kind: "lab", center: [6.132104, 100.386689] },
+    { id: "b15", name: "Labs", kind: "lab", center: [6.133000, 100.386989] },
+    { id: "b16", name: "Lecturer Apartments", kind: "dorm", center: [6.131331, 100.386255] },
+    { id: "b17", name: "Lecturer Apartments B", kind: "dorm", center: [6.131645, 100.386619] },
+    { id: "b18", name: "Lecturer Apartments C", kind: "dorm", center: [6.130845, 100.386641] },
+    { id: "b19", name: "Female Hostel", kind: "dorm", center: [6.130632, 100.386260] },
+    { id: "b20", name: "Football Field", kind: "gym", center: [6.130579, 100.385300] },
+    { id: "b21", name: "Female MPH", kind: "admin", center: [6.129779, 100.385332] },
+    { id: "b22", name: "Tanks", kind: "admin", center: [6.129811, 100.384394] },
+    { id: "b23", name: "Male Hostels", kind: "dorm", center: [6.132040, 100.384206] },
+    { id: "b24", name: "Male MPH", kind: "admin", center: [6.132696, 100.383090] },
+];
