@@ -31,6 +31,14 @@ All signals are simulated locally; no real tracking data is used.
 npm install
 npm run dev
 ```
+## Screenshots
 
 ---
 **Copyright @ Leroy 2026. All rights reserved.**
+
+![landing page](public/landing_page.png)
+![hide the trajectories](public/hide_trajectories.png)
+![hide the trajectories and sensors](public/hide_trajectories_and_sensors.png)
+![increased Z-Threshold](public/increased_z_threshold.png)
+
+
