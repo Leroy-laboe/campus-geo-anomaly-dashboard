@@ -13,8 +13,9 @@ export default function AppShell() {
     const [showAnomalies, setShowAnomalies] = useState(true);
     const [zThreshold, setZThreshold] = useState(3.0);
     const [mapCenter, setMapCenter] = useState<[number, number]>(CAMPUS_CENTER);
-    const [selectedSensorId, setSelectedSensorId] = useState<string | null>(null);
+    const [selectedSensorId, setSelectedSensorId] = useState<string | null>("s_gate_main");
     const [selectedAnomalyId, setSelectedAnomalyId] = useState<string | null>(null);
+    const [showHint, setShowHint] = useState(true);
 
     // Simulation State
     const startTs = useMemo(() => Date.now() - 6 * 3600_000, []); // Last 6 hours
@@ -57,6 +58,37 @@ export default function AppShell() {
             >
                 {/* Left Column: Map focus */}
                 <div className="glass-panel animate-fade" style={{ height: 750, overflow: 'hidden', position: 'relative' }}>
+                    {/* Onboarding Hint */}
+                    {showHint && (
+                        <div
+                            style={{
+                                position: 'absolute',
+                                top: 20,
+                                left: '50%',
+                                transform: 'translateX(-50%)',
+                                zIndex: 1000,
+                                background: 'rgba(99, 102, 241, 0.9)',
+                                color: 'white',
+                                padding: '8px 20px',
+                                borderRadius: 30,
+                                fontSize: '0.85rem',
+                                fontWeight: 700,
+                                boxShadow: '0 4px 15px rgba(0,0,0,0.3)',
+                                display: 'flex',
+                                alignItems: 'center',
+                                gap: 10,
+                                backdropFilter: 'blur(10px)',
+                                border: '1px solid rgba(255,255,255,0.1)'
+                            }}
+                        >
+                            <span>👆 Click any sensor dot or anomaly on the map to analyze its trend</span>
+                            <button
+                                onClick={() => setShowHint(false)}
+                                style={{ background: 'rgba(255,255,255,0.2)', border: 'none', color: 'white', borderRadius: '50%', width: 20, height: 20, cursor: 'pointer', fontSize: '10px' }}
+                            >✕</button>
+                        </div>
+                    )}
+
                     <CampusMap
                         center={mapCenter}
                         boundary={CAMPUS_BOUNDS}
@@ -70,7 +102,10 @@ export default function AppShell() {
                         showTours={showTours}
                         showSensors={showSensors}
                         showAnomalies={showAnomalies}
-                        onSensorClick={setSelectedSensorId}
+                        onSensorClick={(id) => {
+                            setSelectedSensorId(id);
+                            setShowHint(false);
+                        }}
                         selectedAnomalyId={selectedAnomalyId}
                     />
                 </div>
@@ -96,10 +131,15 @@ export default function AppShell() {
                                 style={{ width: '100%', cursor: 'pointer' }}
                             />
 
-                            <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, marginTop: 8 }}>
-                                <ToggleButton label="Trajectories" active={showTours} onClick={() => setShowTours(!showTours)} color="var(--warning)" />
-                                <ToggleButton label="IoT Nodes" active={showSensors} onClick={() => setShowSensors(!showSensors)} color="var(--success)" />
-                                <ToggleButton label="Anomalies" active={showAnomalies} onClick={() => setShowAnomalies(!showAnomalies)} color="var(--accent)" />
+                            <div style={{ marginTop: 12 }}>
+                                <div style={{ color: 'var(--text-muted)', fontSize: '0.75rem', fontWeight: 600, marginBottom: 8, textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+                                    Toggle map visibility: (click buttons below)
+                                </div>
+                                <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
+                                    <ToggleButton label="Trajectories" active={showTours} onClick={() => setShowTours(!showTours)} color="var(--warning)" />
+                                    <ToggleButton label="IoT Nodes" active={showSensors} onClick={() => setShowSensors(!showSensors)} color="var(--success)" />
+                                    <ToggleButton label="Anomalies" active={showAnomalies} onClick={() => setShowAnomalies(!showAnomalies)} color="var(--accent)" />
+                                </div>
                             </div>
                         </div>
                     </section>
@@ -125,9 +165,22 @@ export default function AppShell() {
                         );
                     })()}
                     {!selectedSensorId && (
-                        <div className="glass-panel" style={{ padding: 40, textAlign: 'center', borderStyle: 'dashed', background: 'rgba(255,255,255,0.01)' }}>
-                            <div style={{ fontSize: '1.5rem', marginBottom: 8, opacity: 0.3 }}>📈</div>
-                            <div style={{ color: 'var(--text-muted)', fontSize: '0.85rem' }}>Select a sensor or anomaly to view trend</div>
+                        <div
+                            className="glass-panel"
+                            style={{
+                                padding: 40,
+                                textAlign: 'center',
+                                borderStyle: 'dashed',
+                                background: 'rgba(255,255,255,0.01)',
+                                cursor: 'default'
+                            }}
+                        >
+                            <div style={{ fontSize: '1.5rem', marginBottom: 12, opacity: 0.3 }}>📈</div>
+                            <div style={{ color: 'var(--text-muted)', fontSize: '0.9rem', lineHeight: '1.5' }}>
+                                No sensor active.<br />
+                                <strong style={{ color: 'var(--primary)' }}>Click a dot on the map</strong><br />
+                                to load real-time telemetry.
+                            </div>
                         </div>
                     )}
 
