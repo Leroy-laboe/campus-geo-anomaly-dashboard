@@ -2,8 +2,8 @@
   "name": "campus-geo-anomaly-dashboard",
   "private": true,
   "version": "1.0.0",
-  "description": "Geospatial Anomaly Detection Dashboard for Campus Sentiment and Security Analysis",
-  "author": "Leroy",
+  "description": "Interactive geospatial dashboard for simulated campus activity, IoT telemetry, and statistical anomaly detection.",
+  "author": "Leroy Nyasha Mangwarara",
   "type": "module",
   "scripts": {
     "dev": "vite",
