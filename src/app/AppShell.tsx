@@ -40,7 +40,7 @@ export default function AppShell() {
                 </div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
                     <p style={{ margin: 0, color: 'var(--text-muted)', fontSize: '1rem', fontWeight: 500 }}>
-                        Real-time spatiotemporal monitoring + statistical outlier detection
+                        Simulated spatiotemporal monitoring + statistical outlier detection
                     </p>
                     <div style={{ padding: '4px 12px', background: 'rgba(16, 185, 129, 0.1)', color: 'var(--success)', borderRadius: 20, fontSize: '0.75rem', fontWeight: 800, display: 'flex', alignItems: 'center', gap: 6, border: '1px solid rgba(16, 185, 129, 0.2)' }}>
                         <div style={{ width: 8, height: 8, background: 'var(--success)', borderRadius: '50%', boxShadow: '0 0 10px var(--success)' }}></div>
@@ -179,7 +179,7 @@ export default function AppShell() {
                             <div style={{ color: 'var(--text-muted)', fontSize: '0.9rem', lineHeight: '1.5' }}>
                                 No sensor active.<br />
                                 <strong style={{ color: 'var(--primary)' }}>Click a dot on the map</strong><br />
-                                to load real-time telemetry.
+                                to load simulated telemetry.
                             </div>
                         </div>
                     )}
